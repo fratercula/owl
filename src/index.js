@@ -1,7 +1,7 @@
 import React from 'react'
 import parser from './parser'
 
-export default function ({ formater, data }) {
-  const P = parser(formater)
+export default function ({ formater = {}, data = {}, customs = {} }) {
+  const P = parser(formater, customs)
   return (<P {...data} />)
 }

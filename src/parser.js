@@ -1,7 +1,6 @@
 import React from 'react'
-import Link from './link'
 
-export default function ({ align, rules }) {
+export default function ({ align, rules = [] }, customs) {
   return data => rules.map((blocks, i) => (
     <div
       key={i}
@@ -33,8 +32,19 @@ export default function ({ align, rules }) {
             )
           }
 
-          const c = { link: Link }
-          const C = c[type]
+          if (type === 'image') {
+            return (
+              <img key={j} src={text} {...props} />
+            )
+          }
+
+          if (type === 'link') {
+            return (
+              <a key={j} {...props}>{text}</a>
+            )
+          }
+
+          const C = customs[type]
 
           if (C) {
             return <C key={j} text={text} props={props} />
