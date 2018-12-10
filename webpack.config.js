@@ -50,4 +50,21 @@ const base = {
   devtool: 'cheap-module-eval-source-map',
 }
 
+if (process.env.NODE_ENV === 'prod') {
+  base.entry = './entry/umd.js'
+  base.mode = 'production'
+  base.output = {
+    library: 'Owl',
+    libraryTarget: 'umd',
+    filename: 'index.js',
+    path: `${__dirname}/build`,
+  }
+  base.externals = { react: 'react' }
+  base.devtool = 'source-map'
+
+  base.module.rules[1].use.forEach((loader) => {
+    loader.options = { sourceMap: false } // eslint-disable-line no-param-reassign
+  })
+}
+
 module.exports = base

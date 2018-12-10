@@ -1,11 +1,20 @@
 {
   "name": "@fratercula/owl",
   "version": "0.1.0",
-  "description": "owl",
-  "main": "index.js",
+  "description": "React cell layout interpreter",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "build"
+  ],
   "scripts": {
     "start": "NODE_ENV=dev webpack-dev-server --hot --inline",
-    "lint": "eslint ."
+    "umd": "NODE_ENV=prod webpack --hide-modules --progress --colors",
+    "build": "npm run css && npm run js && npm run umd",
+    "lint": "eslint .",
+    "css": "lessc src/index.less lib/index.css",
+    "js": "babel src -d lib",
+    "prepublish": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
