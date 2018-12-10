@@ -14,4 +14,8 @@ const customs = {
   },
 }
 
-render(<Entry customs={customs} data={data} formater={formater} />, document.getElementById('root'))
+render(<Entry
+  customs={customs}
+  data={data}
+  formater={formater}
+/>, document.getElementById('root'))

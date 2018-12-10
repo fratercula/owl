@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function ({ align, rules = [] }, customs) {
+export default function ({ align, rules = [] }, customs, className) {
   return data => rules.map((blocks, i) => (
     <div
-      className="react-owl"
+      className={className}
       key={i}
       style={align !== 'vertical' ? { display: 'inline-block' } : null}
     >
@@ -55,7 +55,7 @@ export default function ({ align, rules = [] }, customs) {
           }
 
           return (
-            <div key={j} className="react-owl-unit" style={{ display: 'inline-block' }}>
+            <div key={j} className={`${className}-unit`} style={{ display: 'inline-block' }}>
               {child}
             </div>
           )

@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/fratercula/owl#readme",
   "peerDependencies": {
-    "react": "*",
-    "prop-types": "*"
+    "react": "*"
   },
   "dependencies": {},
   "devDependencies": {
