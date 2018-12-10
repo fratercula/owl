@@ -3,6 +3,7 @@ import React from 'react'
 export default function ({ align, rules = [] }, customs) {
   return data => rules.map((blocks, i) => (
     <div
+      className="react-owl"
       key={i}
       style={align !== 'vertical' ? { display: 'inline-block' } : null}
     >
@@ -14,6 +15,7 @@ export default function ({ align, rules = [] }, customs) {
 
           const { key, type, props = {} } = item
           const text = data[key]
+          const C = customs[type]
 
           if (!key || !text) {
             return null
@@ -26,31 +28,37 @@ export default function ({ align, rules = [] }, customs) {
             }
           })
 
+          let child = null
+
           if (type === 'string') {
-            return (
-              <span key={j} {...props}>{text}</span>
+            child = (
+              <span {...props}>{text}</span>
             )
           }
 
           if (type === 'image') {
-            return (
-              <img key={j} src={text} {...props} />
+            child = (
+              <img src={text} {...props} />
             )
           }
 
           if (type === 'link') {
-            return (
-              <a key={j} {...props}>{text}</a>
+            child = (
+              <a {...props}>{text}</a>
             )
           }
 
-          const C = customs[type]
-
           if (C) {
-            return <C key={j} text={text} props={props} />
+            child = (
+              <C text={text} props={props} />
+            )
           }
 
-          return null
+          return (
+            <div key={j} className="react-owl-unit" style={{ display: 'inline-block' }}>
+              {child}
+            </div>
+          )
         })
       }
     </div>
