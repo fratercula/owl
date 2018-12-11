@@ -18,9 +18,6 @@ export const formater = {
         props: {
           href: 'key:url',
           target: '_blank',
-          style: {
-            marginLeft: 5,
-          },
         },
       },
     ],
