@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "React layout interpreter",
   "main": "lib/index.js",
+  "keywords": [
+    "react",
+    "layout"
+  ],
+  "unpkg": "build/index.js",
   "files": [
     "lib",
     "build"
