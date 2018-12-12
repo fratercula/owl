@@ -1,3 +1,3 @@
 # owl
 
-React cell layout interpreter
+React layout interpreter

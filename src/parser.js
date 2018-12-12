@@ -55,7 +55,7 @@ export default function ({ align, rules = [] }, customs, className) {
           }
 
           return (
-            <div key={j} className={`${className}-unit`} style={{ display: 'inline-block' }}>
+            <div key={j} className={`${className}-cell`} style={{ display: 'inline-block' }}>
               {child}
             </div>
           )

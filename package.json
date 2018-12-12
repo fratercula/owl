@@ -1,7 +1,7 @@
 {
   "name": "@fratercula/owl",
   "version": "0.1.0",
-  "description": "React cell layout interpreter",
+  "description": "React layout interpreter",
   "main": "lib/index.js",
   "files": [
     "lib",
