@@ -19,8 +19,8 @@
     "lint": "eslint .",
     "css": "lessc src/index.less lib/index.css",
     "js": "babel src -d lib",
-    "test": "jest --config jest.config.js",
-    "prepublish": "npm run lint && npm t && npm run build"
+    "test": "npm run lint && jest --config jest.config.js",
+    "prepublish": "npm t && npm run build"
   },
   "repository": {
     "type": "git",
