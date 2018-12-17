@@ -33,9 +33,11 @@
   },
   "homepage": "https://github.com/fratercula/owl#readme",
   "peerDependencies": {
-    "react": "*"
+    "react": "*",
+    "prop-types": "*"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
