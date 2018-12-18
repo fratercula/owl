@@ -2,27 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Unit from './unit'
 
-function Card({ data, column }) {
-  if (column === 0) {
-    return null
-  }
-
+function Card({ data }) {
   return (
     <div className="card">
       {
-        data.map((item, i) => (<Unit key={i} {...item} />))
+        data.map((group, i) => (
+          <div key={i} className="card-group">
+            {
+              group.map((item, j) => (
+                <Unit key={j} {...item} />
+              ))
+            }
+          </div>
+        ))
       }
     </div>
   )
 }
 
 Card.propTypes = {
-  column: PropTypes.number,
   data: PropTypes.array,
 }
 
 Card.defaultProps = {
-  column: 1,
   data: [],
 }
 

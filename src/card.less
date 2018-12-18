@@ -1,13 +1,21 @@
 .card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  &-group {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0;
+  }
 
   &-unit {
-    width: 33%;
-    background: #f1f1f1;
-    border: 5px solid #fff;
-    box-sizing: border-box;
-    height: 50px;
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &-label {
+      width: 90px;
+      display: inline-block;
+      vertical-align: top;
+      color: #a7a7a7;
+    }
   }
 }

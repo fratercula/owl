@@ -5,8 +5,16 @@ function Unit({ type, label, value }) {
   if (type === 'string') {
     return (
       <div className="card-unit">
-        <span>{label}:</span>
-        <span>{value}</span>
+        {
+          label
+            ? (<span className="card-unit-label">{label}:</span>)
+            : null
+        }
+        {
+          value
+            ? (<span>{value}</span>)
+            : null
+        }
       </div>
     )
   }
