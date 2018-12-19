@@ -4,10 +4,10 @@ import Unit from './unit'
 
 function Card({ data, align }) {
   return (
-    <div className="card">
+    <div className="react-owl-card">
       {
         data.map((group, i) => (
-          <div key={i} className="card-group">
+          <div key={i} className="react-owl-card-group">
             {
               group.map((item, j) => (
                 <Unit key={j} align={align} {...item} />

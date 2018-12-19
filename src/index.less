@@ -1,4 +1,32 @@
-.react-owl {
+.react-owl-card {
+  &-group {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0;
+  }
+
+  &-unit {
+    flex: 1;
+    margin: 0 5px;
+    overflow: hidden;
+    display: flex;
+
+    &-label {
+      white-space: nowrap;
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: top;
+      color: #a7a7a7;
+    }
+
+    &-value {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.react-owl-cell {
   vertical-align: top;
   margin-bottom: 5px;
 

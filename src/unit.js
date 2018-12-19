@@ -9,20 +9,20 @@ function Unit({
 }) {
   const labelStyle = align > 0 ? { width: align } : null
   const unitStyle = align === 'justify'
-    ? { 'justify-content': 'space-between' }
+    ? { justifyContent: 'space-between' }
     : null
 
   if (type === 'string') {
     return (
-      <div style={unitStyle} className="card-unit">
+      <div style={unitStyle} className="react-owl-card-unit">
         {
           label
-            ? (<span style={labelStyle} className="card-unit-label">{label}:</span>)
+            ? (<span style={labelStyle} className="react-owl-card-unit-label">{label}:</span>)
             : null
         }
         {
           value
-            ? (<span className="card-unit-value">{value}</span>)
+            ? (<span className="react-owl-card-unit-value">{value}</span>)
             : null
         }
       </div>
