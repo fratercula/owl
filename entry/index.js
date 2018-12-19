@@ -5,7 +5,7 @@ import { Cell, Card } from '../src'
 import { cellData, cardData, formater } from './data'
 import '../src/index.less'
 
-const customs = {
+const cellCustoms = {
   tag({ text, props }) {
     return (
       <Tag {...props}>{text}</Tag>
@@ -13,9 +13,21 @@ const customs = {
   },
 }
 
-render((
-  <div>
-    <Cell customs={customs} data={cellData} formater={formater} />
-    <Card align="justify" data={cardData} />
-  </div>
-), document.getElementById('root'))
+const cardCustoms = {
+  tag({ value }) { // eslint-disable-line react/prop-types
+    return (
+      <Tag>{value}</Tag>
+    )
+  },
+}
+
+function Entry() {
+  return (
+    <div>
+      <Cell customs={cellCustoms} data={cellData} formater={formater} />
+      <Card customs={cardCustoms} align="justify" data={cardData} />
+    </div>
+  )
+}
+
+render(<Entry />, document.getElementById('root'))

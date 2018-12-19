@@ -6,30 +6,32 @@ function Unit({
   label,
   value,
   align,
+  customs,
 }) {
   const labelStyle = align > 0 ? { width: align } : null
   const unitStyle = align === 'justify'
     ? { justifyContent: 'space-between' }
     : null
+  const C = customs[type]
 
-  if (type === 'string') {
-    return (
-      <div style={unitStyle} className="react-owl-card-unit">
-        {
-          label
-            ? (<span style={labelStyle} className="react-owl-card-unit-label">{label}:</span>)
-            : null
-        }
-        {
-          value
-            ? (<span className="react-owl-card-unit-value">{value}</span>)
-            : null
-        }
-      </div>
-    )
+  let child = value
+    ? (<span className="react-owl-card-unit-value">{value}</span>)
+    : null
+
+  if (type !== 'string' && C) {
+    child = (<C label={label} value={value} />)
   }
 
-  return null
+  return (
+    <div style={unitStyle} className="react-owl-card-unit">
+      {
+        label
+          ? (<span style={labelStyle} className="react-owl-card-unit-label">{label}:</span>)
+          : null
+      }
+      {child}
+    </div>
+  )
 }
 
 Unit.propTypes = {
@@ -37,6 +39,7 @@ Unit.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   align: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  customs: PropTypes.object,
 }
 
 Unit.defaultProps = {
@@ -44,6 +47,7 @@ Unit.defaultProps = {
   label: '',
   value: '',
   align: 0,
+  customs: {},
 }
 
 export default Unit

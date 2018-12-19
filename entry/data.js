@@ -89,5 +89,10 @@ export const cardData = [
     {
       value: 'aksdj4',
     },
+    {
+      type: 'tag',
+      label: 'tag',
+      value: 'nick',
+    },
   ],
 ]
