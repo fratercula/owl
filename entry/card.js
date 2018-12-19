@@ -13,7 +13,7 @@ export default [
   [
     {
       label: '金额',
-      value: '¥2018',
+      value: 'V-T To justify printed text means to adjust the spaces between the words so that each line of type is exactly the same length. 使 (文本) 对齐',
     },
     {},
     {
@@ -23,7 +23,8 @@ export default [
   [
     {
       label: '金额',
-      value: '¥2018',
+      align: 100,
+      value: '2018-09-12 12:30:45',
     },
     {
       label: '商品',

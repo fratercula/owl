@@ -7,15 +7,21 @@
 
   &-unit {
     flex: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    margin: 0 5px;
     overflow: hidden;
+    display: flex;
 
     &-label {
-      width: 90px;
+      white-space: nowrap;
+      margin-right: 5px;
       display: inline-block;
       vertical-align: top;
       color: #a7a7a7;
+    }
+
+    &-value {
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 }

@@ -23,4 +23,4 @@ const customs = {
 //   formater={formater}
 // />, document.getElementById('root'))
 
-render(<Card data={cardData} />, document.getElementById('root'))
+render(<Card align="justify" data={cardData} />, document.getElementById('root'))
