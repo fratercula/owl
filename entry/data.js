@@ -68,6 +68,7 @@ export const cardData = [
     {
       label: '金额',
       value: 'V-T To justify printed text means to adjust the spaces between the words so that each line of type is exactly the same length. 使 (文本) 对齐',
+      align: 200,
     },
     {},
     {
@@ -90,9 +91,22 @@ export const cardData = [
       value: 'aksdj4',
     },
     {
-      type: 'tag',
+      type: 'table',
       label: 'tag',
-      value: 'nick',
+      value: {
+        columns: [
+          {
+            title: '标题',
+            formater: 'title',
+          },
+          {
+            title: '内容',
+            formater,
+          },
+        ],
+        dataSource: [cellData],
+      },
+      align: 60,
     },
   ],
 ]

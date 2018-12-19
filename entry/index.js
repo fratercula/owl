@@ -1,6 +1,9 @@
+/* eslint no-param-reassign: 0 */
+
 import React from 'react'
 import { render } from 'react-dom'
 import Tag from 'antd/lib/tag'
+import Table from 'antd/lib/table'
 import { Cell, Card } from '../src'
 import { cellData, cardData, formater } from './data'
 import '../src/index.less'
@@ -14,9 +17,27 @@ const cellCustoms = {
 }
 
 const cardCustoms = {
-  tag({ value }) { // eslint-disable-line react/prop-types
+  table({ value }) { // eslint-disable-line react/prop-types
+    const { columns, dataSource } = value
+
+    columns.forEach((column, i) => {
+      const { formater: fr } = column
+      column.dataIndex = typeof fr === 'string' ? fr : i
+      if (typeof fr === 'object') {
+        column.render = (cell, record) => (
+          <Cell customs={cellCustoms} formater={fr} data={record} />
+        )
+      }
+    })
+
     return (
-      <Tag>{value}</Tag>
+      <Table
+        rowKey={(record, i) => i}
+        size="small"
+        pagination={false}
+        dataSource={dataSource}
+        columns={columns}
+      />
     )
   },
 }

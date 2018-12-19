@@ -14,11 +14,11 @@ function Unit({
     : null
   const C = customs[type]
 
-  let child = value
+  let child = value && type === 'string'
     ? (<span className="react-owl-card-unit-value">{value}</span>)
     : null
 
-  if (type !== 'string' && C) {
+  if (C) {
     child = (<C label={label} value={value} />)
   }
 
@@ -37,7 +37,7 @@ function Unit({
 Unit.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   align: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   customs: PropTypes.object,
 }
