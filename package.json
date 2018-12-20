@@ -15,6 +15,7 @@
   "scripts": {
     "start": "NODE_ENV=dev webpack-dev-server --hot --inline",
     "umd": "NODE_ENV=prod webpack --hide-modules --progress --colors",
+    "docs": "NODE_ENV=docs webpack --hide-modules --progress --colors",
     "build": "npm run css && npm run js && npm run umd",
     "lint": "eslint .",
     "css": "lessc src/index.less lib/index.css",

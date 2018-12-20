@@ -67,4 +67,19 @@ if (process.env.NODE_ENV === 'prod') {
   })
 }
 
+if (process.env.NODE_ENV === 'docs') {
+  base.entry = './entry/index.js'
+  base.mode = 'production'
+  base.output = {
+    filename: 'index.js',
+    path: `${__dirname}/docs`,
+  }
+  base.externals = {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    antd: 'antd',
+  }
+  base.devtool = 'source-map'
+}
+
 module.exports = base
