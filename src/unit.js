@@ -6,6 +6,7 @@ function Unit({
   label,
   value,
   align,
+  props,
   customs,
 }) {
   const labelStyle = align > 0 ? { width: align } : null
@@ -18,8 +19,16 @@ function Unit({
     ? (<span className="react-owl-card-unit-value">{value}</span>)
     : null
 
+  if (type === 'line') {
+    child = (<span {...props} className="react-owl-card-line" />)
+  }
+
+  if (type === 'space') {
+    child = (<span {...props} className="react-owl-card-space" />)
+  }
+
   if (C) {
-    child = (<C label={label} value={value} />)
+    child = (<C label={label} props={props} value={value} />)
   }
 
   return (
@@ -40,6 +49,7 @@ Unit.propTypes = {
   value: PropTypes.any,
   align: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   customs: PropTypes.object,
+  props: PropTypes.object,
 }
 
 Unit.defaultProps = {
@@ -48,6 +58,7 @@ Unit.defaultProps = {
   value: '',
   align: 0,
   customs: {},
+  props: {},
 }
 
 export default Unit

@@ -17,7 +17,7 @@ const cellCustoms = {
 }
 
 const cardCustoms = {
-  table({ value }) { // eslint-disable-line react/prop-types
+  table({ value, props }) { // eslint-disable-line react/prop-types
     const { columns, dataSource } = value
 
     columns.forEach((column, i) => {
@@ -33,10 +33,9 @@ const cardCustoms = {
     return (
       <Table
         rowKey={(record, i) => i}
-        size="small"
-        pagination={false}
         dataSource={dataSource}
         columns={columns}
+        {...props}
       />
     )
   },

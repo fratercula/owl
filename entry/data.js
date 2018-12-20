@@ -77,6 +77,11 @@ export const cardData = [
   ],
   [
     {
+      type: 'space',
+    },
+  ],
+  [
+    {
       label: '金额',
       align: 100,
       value: '2018-09-12 12:30:45',
@@ -84,6 +89,16 @@ export const cardData = [
     {
       label: '商品',
       value: '一个商品',
+    },
+  ],
+  [
+    {
+      type: 'line',
+      props: {
+        style: {
+          marginTop: 20,
+        },
+      },
     },
   ],
   [
@@ -107,6 +122,10 @@ export const cardData = [
         dataSource: [cellData],
       },
       align: 60,
+      props: {
+        size: 'small',
+        pagination: false,
+      },
     },
   ],
 ]
