@@ -46,16 +46,16 @@ const data = {
 }
 
 describe('Parser', () => {
-  let P = parser(formater, {}, 'owl')
+  let P = parser(formater, {})
   let wrapper = mount(<P {...data} />)
 
   it('test', () => {
-    expect(wrapper.find('.owl').length).toEqual(2)
-    expect(wrapper.find('.owl-cell').length).toEqual(3)
-    expect(wrapper.find('.owl-cell').at(0).text()).toEqual(data.time)
+    expect(wrapper.find('.react-owl-cell').length).toEqual(2)
+    expect(wrapper.find('.react-owl-cell-unit').length).toEqual(3)
+    expect(wrapper.find('.react-owl-cell-unit').at(0).text()).toEqual(data.time)
     expect(wrapper.find({ href: data.url }).text()).toEqual(data.nick)
-    expect(wrapper.find('.owl-cell').at(2).children().html()).toEqual('<img src="/src/img.img" style="width: 100px;">')
-    expect(wrapper.find('.owl').at(0).prop('style')).toEqual({ display: 'inline-block' })
+    expect(wrapper.find('.react-owl-cell-unit').at(2).children().html()).toEqual('<img src="/src/img.img" style="width: 100px;">')
+    expect(wrapper.find('.react-owl-cell').at(0).prop('style')).toEqual({ display: 'inline-block' })
   })
 
   it('customs', () => {
@@ -74,11 +74,11 @@ describe('Parser', () => {
       props: { className: 'test' },
     }]
 
-    P = parser(formater, customs, 'owl')
+    P = parser(formater, customs)
     wrapper = mount(<P {...data} />)
 
-    expect(wrapper.find('.owl').get(0).style).toEqual(undefined)
-    expect(wrapper.find('.owl').length).toEqual(3)
+    expect(wrapper.find('.react-owl-cell').get(0).style).toEqual(undefined)
+    expect(wrapper.find('.react-owl-cell').length).toEqual(3)
     expect(wrapper.find('.test').text()).toEqual('nick')
   })
 
@@ -86,7 +86,7 @@ describe('Parser', () => {
     const f = { align: 'vertical' }
     const d = {}
 
-    P = parser(f, {}, 'owl')
+    P = parser(f, {})
     wrapper = mount(<P {...d} />)
 
     expect(wrapper.html()).toEqual(null)

@@ -15,151 +15,17 @@ $ npm i @fratercula/owl -S
 
 ## Usage
 
-basic
+See the [demo](https://fratercula.github.io/owl/)
 
 ```js
-import Owl from '@fratercula/owl'
+import React from 'react'
+import { render } from 'react-dom'
+import { Tag, Table } from 'antd'
+import { Card, Cell } from '@fratercula/owl'
+import { cellData, cardData, formater } from './data'
+import '../src/index.less'
 
-const formater = {
-  align: 'vertical',
-  rules: [
-    [
-      'time',
-      {
-        type: 'link',
-        key: 'title',
-        props: {
-          href: 'key:url',
-        },
-      },
-    ],
-    [
-      {
-        type: 'image',
-        key: 'src',
-        props: {
-          width: 100,
-        },
-      },
-    ],
-  ],
-}
-
-const data = {
-  time: '2018-18-19 12:23:34',
-  url: '/ore/s',
-  src: '/path/to/image',
-  title: 'table',
-}
-
-ReactDOM.render(<Owl data={data} formater={formater} />, node)
-
-/*
-** result
-
-<div class="react-owl">
-  <div class="react-owl-cell" style="display: inline-block;">
-    <span>2018-18-19 12:23:34</span>
-  </div>
-  <div class="react-owl-cell" style="display: inline-block;">
-    <a href="/ore/s" target="_blank">table</a>
-  </div>
-</div>
-<div class="react-owl">
-  <div class="react-owl-cell" style="display: inline-block;">
-    <img src="/path/to/image" width="100">
-  </div>
-</div>
-
-*/
-```
-
-align
-
-```js
-import Owl from '@fratercula/owl'
-
-const formater = {
-  align: 'horizontal',
-  rules: [
-    ['time'],
-  ],
-}
-
-const data = {
-  time: '2018-18-19 12:23:34',
-}
-
-ReactDOM.render(<Owl data={data} formater={formater} />, node)
-
-/*
-** result
-
-<div class="react-owl" style="display: inline-block;">
-  <div class="react-owl-cell" style="display: inline-block;">
-    <span>2018-18-19 12:23:34</span>
-  </div>
-</div>
-
-*/
-```
-
-className
-
-```js
-import Owl from '@fratercula/owl'
-
-const formater = {
-  align: 'horizontal',
-  rules: [
-    ['time'],
-  ],
-}
-
-const data = {
-  time: '2018-18-19 12:23:34',
-}
-
-ReactDOM.render(<Owl data={data} formater={formater} className="lwo" />, node)
-
-/*
-** result
-
-<div class="lwo" style="display: inline-block;">
-  <div class="lwo-cell" style="display: inline-block;">
-    <span>2018-18-19 12:23:34</span>
-  </div>
-</div>
-
-*/
-```
-
-customs
-
-```js
-import Owl from '@fratercula/owl'
-import Tag from 'antd/lib/tag'
-
-const formater = {
-  align: 'vertical',
-  rules: [
-    [
-      {
-        type: 'tag',
-        key: 'time',
-        props: {
-          color: '#f50',
-        },
-      },
-    ],
-  ],
-}
-
-const data = {
-  time: '2018-18-19 12:23:34',
-}
-
-const customs = {
+const cellCustoms = {
   tag({ text, props }) {
     return (
       <Tag {...props}>{text}</Tag>
@@ -167,18 +33,41 @@ const customs = {
   },
 }
 
-ReactDOM.render(<Owl customs={customs} data={data} formater={formater} />, node)
+const cardCustoms = {
+  table({ value, props }) { // eslint-disable-line react/prop-types
+    const { columns, dataSource } = value
 
-/*
-** result
+    columns.forEach((column, i) => {
+      const { formater: fr } = column
+      column.dataIndex = typeof fr === 'string' ? fr : i
+      if (typeof fr === 'object') {
+        column.render = (cell, record) => (
+          <Cell customs={cellCustoms} formater={fr} data={record} />
+        )
+      }
+    })
 
-<div class="react-owl">
-  <div class="react-owl-cell" style="display: inline-block;">
-    <div data-show="true" class="ant-tag ant-tag-has-color" style="background-color: rgb(255, 85, 0);">2018-18-19 12:23:34</div>
-  </div>
-</div>
+    return (
+      <Table
+        rowKey={(record, i) => i}
+        dataSource={dataSource}
+        columns={columns}
+        {...props}
+      />
+    )
+  },
+}
 
-*/
+function Entry() {
+  return (
+    <div>
+      <Cell customs={cellCustoms} data={cellData} formater={formater} />
+      <Card customs={cardCustoms} align="justify" data={cardData} />
+    </div>
+  )
+}
+
+render(<Entry />, document.getElementById('root'))
 ```
 
 ## License
