@@ -1,7 +1,7 @@
 import React from 'react'
 import Enzyme, { mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import parser from '../src/parser'
+import Cell from '../src/cell'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -46,8 +46,7 @@ const data = {
 }
 
 describe('Parser', () => {
-  let P = parser(formater, {})
-  let wrapper = mount(<P {...data} />)
+  let wrapper = mount(<Cell data={data} formater={formater} />)
 
   it('test', () => {
     expect(wrapper.find('.react-owl-cell').length).toEqual(2)
@@ -74,8 +73,7 @@ describe('Parser', () => {
       props: { className: 'test' },
     }]
 
-    P = parser(formater, customs)
-    wrapper = mount(<P {...data} />)
+    wrapper = mount(<Cell data={data} formater={formater} customs={customs} />)
 
     expect(wrapper.find('.react-owl-cell').get(0).style).toEqual(undefined)
     expect(wrapper.find('.react-owl-cell').length).toEqual(3)
@@ -83,12 +81,7 @@ describe('Parser', () => {
   })
 
   it('default', () => {
-    const f = { align: 'vertical' }
-    const d = {}
-
-    P = parser(f, {})
-    wrapper = mount(<P {...d} />)
-
+    wrapper = mount(<Cell />)
     expect(wrapper.html()).toEqual(null)
   })
 })
