@@ -13,7 +13,13 @@ export default function ({ align, rules = [] }, customs) {
             ? { type: 'string', key: block }
             : block
 
-          const { key, type, props = {} } = item
+          const {
+            key,
+            type,
+            props = {},
+            prefix = '',
+            postfix = '',
+          } = item
           const text = data[key]
           const C = customs[type]
 
@@ -55,8 +61,14 @@ export default function ({ align, rules = [] }, customs) {
           }
 
           return (
-            <div key={j} className="react-owl-cell-unit" style={{ display: 'inline-block' }}>
+            <div
+              key={j}
+              className="react-owl-cell-unit"
+              style={{ display: 'inline-block' }}
+            >
+              {prefix}
               {child}
+              {postfix}
             </div>
           )
         })

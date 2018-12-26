@@ -4,10 +4,13 @@ export const formater = {
     [
       {
         type: 'string',
+        prefix: '昵称：',
+        postfix: ' 不错!',
         key: 'nick',
         props: {
           style: {
             color: 'red',
+            margin: '0 50px',
           },
         },
       },

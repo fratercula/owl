@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Tag, Table } from 'antd'
-// import Tag from 'antd/lib/tag'
-// import Table from 'antd/lib/table'
+// import { Tag, Table } from 'antd'
+import Tag from 'antd/lib/tag'
+import Table from 'antd/lib/table'
 import { Cell, Card } from '../src'
 import { cellData, cardData, formater } from './data'
 import '../src/index.less'

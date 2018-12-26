@@ -34,6 +34,12 @@ const formater = {
           },
         },
       },
+      {
+        type: 'string',
+        key: 'nick',
+        prefix: 'xxx',
+        postfix: 'yyy',
+      },
     ],
   ],
 }
@@ -49,12 +55,52 @@ describe('Parser', () => {
   let wrapper = mount(<Cell data={data} formater={formater} />)
 
   it('test', () => {
-    expect(wrapper.find('.react-owl-cell').length).toEqual(2)
-    expect(wrapper.find('.react-owl-cell-unit').length).toEqual(3)
-    expect(wrapper.find('.react-owl-cell-unit').at(0).text()).toEqual(data.time)
-    expect(wrapper.find({ href: data.url }).text()).toEqual(data.nick)
-    expect(wrapper.find('.react-owl-cell-unit').at(2).children().html()).toEqual('<img src="/src/img.img" style="width: 100px;">')
-    expect(wrapper.find('.react-owl-cell').at(0).prop('style')).toEqual({ display: 'inline-block' })
+    expect(
+      wrapper
+        .find('.react-owl-cell')
+        .length,
+    ).toEqual(2)
+
+    expect(
+      wrapper
+        .find('.react-owl-cell-unit')
+        .length,
+    ).toEqual(4)
+
+    expect(
+      wrapper
+        .find('.react-owl-cell-unit')
+        .at(0)
+        .text(),
+    ).toEqual(data.time)
+
+    expect(
+      wrapper
+        .find({ href: data.url })
+        .text(),
+    ).toEqual(data.nick)
+
+    expect(
+      wrapper
+        .find('.react-owl-cell-unit')
+        .at(2)
+        .children()
+        .html(),
+    ).toEqual('<img src="/src/img.img" style="width: 100px;">')
+
+    expect(
+      wrapper
+        .find('.react-owl-cell-unit')
+        .at(3)
+        .html(),
+    ).toEqual('<div class="react-owl-cell-unit" style="display: inline-block;">xxx<span>nick</span>yyy</div>')
+
+    expect(
+      wrapper
+        .find('.react-owl-cell')
+        .at(0)
+        .prop('style'),
+    ).toEqual({ display: 'inline-block' })
   })
 
   it('customs', () => {
@@ -75,9 +121,24 @@ describe('Parser', () => {
 
     wrapper = mount(<Cell data={data} formater={formater} customs={customs} />)
 
-    expect(wrapper.find('.react-owl-cell').get(0).style).toEqual(undefined)
-    expect(wrapper.find('.react-owl-cell').length).toEqual(3)
-    expect(wrapper.find('.test').text()).toEqual('nick')
+    expect(
+      wrapper
+        .find('.react-owl-cell')
+        .get(0)
+        .style,
+    ).toEqual(undefined)
+
+    expect(
+      wrapper
+        .find('.react-owl-cell')
+        .length,
+    ).toEqual(3)
+
+    expect(
+      wrapper
+        .find('.test')
+        .text(),
+    ).toEqual('nick')
   })
 
   it('default', () => {
