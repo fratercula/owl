@@ -2,7 +2,7 @@ export default {
   name: 'Kathry Preets',
   role: 'Member',
   career: 'Web Developer',
-  image: 'https://tempim-1256796114.cos-website.ap-shanghai.myqcloud.com/placeholder/80x80',
+  image: 'https://tempim-1256796114.cos-website.ap-shanghai.myqcloud.com/placeholder/70x70',
   expertise: [
     'PHP',
     'JavaScript',
@@ -16,8 +16,7 @@ export default {
   ],
   icon: [
     'message',
-    'email',
+    'mail',
     'phone',
   ],
-  url: '/a/b/c/',
 }
