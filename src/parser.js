@@ -1,30 +1,26 @@
 import React from 'react'
 
-export default function ({ align, rules = [] }, customs) {
-  return data => rules.map((blocks, i) => (
+export default function (formater) {
+  return ({ data, customs }) => formater.map((blocks, i) => (
     <div
       className="react-owl-cell"
       key={i}
-      style={align !== 'vertical' ? { display: 'inline-block' } : null}
     >
       {
         blocks.map((block, j) => {
-          const item = typeof block === 'string'
-            ? { type: 'string', key: block }
-            : block
-
+          const item = typeof block === 'string' ? { key: block } : block
           const {
             key,
             type = 'string',
             props = {},
             prefix = '',
             postfix = '',
-            width = 'auto',
+            style = {},
           } = item
           const text = data[key]
           const C = customs[type]
 
-          if (!key && !type && !text && !Object.keys(props).length) {
+          if (!key && !type) {
             return null
           }
 
@@ -67,7 +63,7 @@ export default function ({ align, rules = [] }, customs) {
               className="react-owl-cell-unit"
               style={{
                 display: 'inline-block',
-                width,
+                ...style,
               }}
             >
               {prefix}
