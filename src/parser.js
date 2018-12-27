@@ -15,15 +15,16 @@ export default function ({ align, rules = [] }, customs) {
 
           const {
             key,
-            type,
+            type = 'string',
             props = {},
             prefix = '',
             postfix = '',
+            width = 'auto',
           } = item
           const text = data[key]
           const C = customs[type]
 
-          if (!key || !text) {
+          if (!key && !type && !text && !Object.keys(props).length) {
             return null
           }
 
@@ -64,7 +65,10 @@ export default function ({ align, rules = [] }, customs) {
             <div
               key={j}
               className="react-owl-cell-unit"
-              style={{ display: 'inline-block' }}
+              style={{
+                display: 'inline-block',
+                width,
+              }}
             >
               {prefix}
               {child}
