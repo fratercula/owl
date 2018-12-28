@@ -1,28 +1,25 @@
-/* eslint no-param-reassign: 0 */
-
 import React from 'react'
-import { Table } from 'antd'
-import { Cell } from '../../src'
+import { Card } from '../../src'
+import tableData from './data'
+import table from './customs'
 
-export default function ({ value, props }) {
-  const { columns, dataSource } = value
+const data = [
+  [
+    {
+      type: 'table',
+      value: tableData,
+      props: {
+        pagination: false,
+        bordered: true,
+      },
+    },
+  ],
+]
 
-  columns.forEach((column, i) => {
-    const { formater: fr } = column
-    column.dataIndex = typeof fr === 'string' ? fr : i
-    if (typeof fr === 'object') {
-      column.render = (cell, record) => (
-        <Cell formater={fr} data={record} />
-      )
-    }
-  })
-
+export default function () {
   return (
-    <Table
-      rowKey={(r, i) => i}
-      dataSource={dataSource}
-      columns={columns}
-      {...props}
-    />
+    <div style={{ marginLeft: 30 }}>
+      <Card data={data} customs={{ table }} />
+    </div>
   )
 }
