@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function (formater) {
-  return ({ data, customs }) => formater.map((blocks, i) => (
+  return ({ data, customs, onChange }) => formater.map((blocks, i) => (
     <div
       className="react-owl-cell"
       key={i}
@@ -12,12 +12,13 @@ export default function (formater) {
           const {
             key,
             type = 'string',
-            props = {},
+            props: originProps = {},
             prefix = '',
             postfix = '',
             style = {},
           } = item
           const text = data[key]
+          const props = JSON.parse(JSON.stringify(originProps))
           const C = customs[type]
 
           if (!key && !type) {
@@ -53,7 +54,11 @@ export default function (formater) {
 
           if (C) {
             child = (
-              <C text={text} props={props} />
+              <C
+                text={text}
+                onChange={e => onChange(type, e)}
+                props={props}
+              />
             )
           }
 

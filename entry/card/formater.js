@@ -28,12 +28,19 @@ export const f0 = [
     },
     {
       type: 'name',
+      props: {
+        name: 'key:name',
+        role: 'key:role',
+      },
       style: {
         marginTop: 10,
       },
     },
     {
       type: 'button',
+      props: {
+        disabled: 'key:disabled',
+      },
     },
   ],
 ]
@@ -75,7 +82,21 @@ export const f2 = [
 export const main = [
   [
     {
+      type: 'checkbox',
+      props: {
+        checked: 'key:checked',
+      },
+    },
+  ],
+  [
+    {
       type: 'lv0',
+      props: {
+        image: 'key:image',
+        name: 'key:name',
+        role: 'key:role',
+        disabled: 'key:disabled',
+      },
       style: {
         width: '100%',
       },
@@ -84,6 +105,9 @@ export const main = [
   [
     {
       type: 'lv1',
+      props: {
+        career: 'key:career',
+      },
       style: {
         width: '100%',
       },
@@ -92,6 +116,9 @@ export const main = [
   [
     {
       type: 'lv2',
+      props: {
+        expertise: 'key:expertise',
+      },
     },
   ],
   [
