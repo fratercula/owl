@@ -35,10 +35,10 @@
   },
   "homepage": "https://github.com/fratercula/owl#readme",
   "peerDependencies": {
-    "react": "*",
-    "prop-types": "*"
+    "react": "*"
   },
   "dependencies": {
+    "prop-types": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -67,6 +67,7 @@
     "less-loader": "^4.1.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",

@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Unit from './unit'
+import Section from './section'
+import css from './card.less'
 
 function Card({ data, align, customs }) {
   return (
-    <div className="react-owl-card">
+    <div className="owl-card">
       {
         data.map((group, i) => (
-          <div key={i} className="react-owl-card-group">
+          <div key={i} className={`owl-card-group ${css.group}`}>
             {
               group.map((item, j) => (
-                <Unit
+                <Section
                   key={j}
                   align={align}
                   {...item}
@@ -27,7 +28,7 @@ function Card({ data, align, customs }) {
 
 Card.propTypes = {
   data: PropTypes.array,
-  align: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  align: PropTypes.number,
   customs: PropTypes.object,
 }
 

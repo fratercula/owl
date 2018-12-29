@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import parser from './parser'
+import interpreter from './interpreter'
 
 function Cell({
   formater,
@@ -8,8 +8,8 @@ function Cell({
   customs,
   onChange,
 }) {
-  const P = parser(formater)
-  return (<P data={data} onChange={onChange} customs={customs} />)
+  const I = interpreter(formater)
+  return (<I data={data} onChange={onChange} customs={customs} />)
 }
 
 Cell.propTypes = {

@@ -1,11 +1,9 @@
 import React from 'react'
+import css from './cell.less'
 
 export default function (formater) {
   return ({ data, customs, onChange }) => formater.map((blocks, i) => (
-    <div
-      className="react-owl-cell"
-      key={i}
-    >
+    <div className={`owl-cell ${css.cell}`} key={i}>
       {
         blocks.map((block, j) => {
           const item = typeof block === 'string' ? { key: block } : block
@@ -65,7 +63,7 @@ export default function (formater) {
           return (
             <div
               key={j}
-              className="react-owl-cell-unit"
+              className={`owl-cell-unit ${css.unit}`}
               style={{
                 display: 'inline-block',
                 ...style,
