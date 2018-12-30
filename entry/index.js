@@ -1,89 +1,98 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import { HashRouter as Router, Route, Link } from 'react-router-dom'
-// import { Layout, Menu, Icon } from 'antd'
-import UserCard from './card'
-import Table from './table'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { Layout, Menu, Icon } from 'antd'
 
-import { Card } from '../src'
+import User from './demos/user'
+import Table from './demos/table'
+import Info from './demos/info'
 
-const cardData = [
-  [
-    {},
-    {
-      label: '订单编号',
-      value: '20180912123045',
-    },
-    {
-      label: '时间',
-      value: '2018-09-12 12:30:45',
-    },
-  ],
-  [
-    {
-      label: '金额',
-      value: 'V-T To justify printed text means to adjust the spaces between the words so that each line of type is exactly the same length. 使 (文本) 对齐',
-      align: 200,
-    },
-    {},
-    {
-      value: '一个商品',
-    },
-  ],
-  [
-    {
-      type: 'space',
-    },
-  ],
-  [
-    {
-      label: '金额',
-      options: {
-        labelWidth: 100,
-        labelColor: 'blue',
-        labelMarginRight: 12,
-        colon: ' : ',
-        cellMargin: '20px',
+const { Content, Sider } = Layout
+const { SubMenu } = Menu
+
+const ROUTES = [
+  {
+    key: 's0',
+    icon: 'layout',
+    menu: 'Cell DEMOS',
+    routes: [
+      {
+        label: 'User Card',
+        path: '/',
+        component: User,
       },
-      value: '2018-09-12 12:30:45',
-    },
-    {
-      label: '商品',
-      value: '一个商品',
-    },
-  ],
-  [
-    {
-      type: 'line',
-      props: {
-        style: {
-          marginTop: 20,
-        },
+    ],
+  },
+  {
+    key: 's1',
+    icon: 'credit-card',
+    menu: 'Card DEMOS',
+    routes: [
+      {
+        label: 'Info Card',
+        path: '/info',
+        component: Info,
       },
-    },
-  ],
-  [
-    {
-      value: 'aksdj4',
-    },
-  ],
+    ],
+  },
+  {
+    key: 's2',
+    icon: 'folder',
+    menu: 'Cell/Card DEMOS',
+    routes: [
+      {
+        label: 'Table Card',
+        path: '/table',
+        component: Table,
+      },
+    ],
+  },
 ]
 
-const options = {
-  colon: ' ? ',
-  labelWidth: 0,
-}
-
 render((
-  <div
-    style={{
-      padding: 30,
-      boxSizing: 'border-box',
-      width: '100%',
-      display: 'flex',
-    }}
-  >
-    <UserCard />
-    <Card options={options} data={cardData} />
-  </div>
+  <Router>
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider width={240} style={{ background: '#fff' }}>
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={[window.location.hash.split('#')[1]]}
+          defaultOpenKeys={['s0', 's1', 's2']}
+          style={{ height: '100%' }}
+        >
+          {
+            ROUTES.map(route => (
+              <SubMenu
+                key={route.key}
+                title={(<span><Icon type={route.icon} />{route.menu}</span>)}
+              >
+                {
+                  route.routes.map(({ label, path }) => (
+                    <Menu.Item key={path}>
+                      <Link to={path}>
+                        {label}
+                      </Link>
+                    </Menu.Item>
+                  ))
+                }
+              </SubMenu>
+            ))
+          }
+        </Menu>
+      </Sider>
+      <Layout style={{ padding: 20 }}>
+        <Content style={{ height: '100%' }}>
+          <div style={{ background: '#fff', padding: 30, minHeight: '100%' }}>
+            {
+              ROUTES
+                .map(({ routes }) => routes)
+                .reduce((a, c) => a.concat(c), [])
+                .map(({ path, component }) => (
+                  <Route key={path} exact path={path} component={component} />
+                ))
+            }
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
+  </Router>
 ), document.getElementById('root'))

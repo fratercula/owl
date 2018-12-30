@@ -7,7 +7,7 @@ import {
   Tag,
   Checkbox,
 } from 'antd'
-import { Cell } from '../../src'
+import { Cell } from '../../../src'
 import {
   f01,
   f0,

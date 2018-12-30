@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from '../../src'
+import { Card } from '../../../src'
 import tableData from './data'
 import table from './customs'
 
