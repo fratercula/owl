@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Section from './section'
 import css from './card.less'
 
-function Card({ data, align, customs }) {
+function Card({ data, options, customs }) {
   return (
     <div className="owl-card">
       {
@@ -13,7 +13,7 @@ function Card({ data, align, customs }) {
               group.map((item, j) => (
                 <Section
                   key={j}
-                  align={align}
+                  mainOptions={options}
                   {...item}
                   customs={customs}
                 />
@@ -28,13 +28,13 @@ function Card({ data, align, customs }) {
 
 Card.propTypes = {
   data: PropTypes.array,
-  align: PropTypes.number,
+  options: PropTypes.object,
   customs: PropTypes.object,
 }
 
 Card.defaultProps = {
   data: [],
-  align: 0,
+  options: {},
   customs: {},
 }
 

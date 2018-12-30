@@ -38,7 +38,13 @@ const cardData = [
   [
     {
       label: '金额',
-      align: 100,
+      options: {
+        labelWidth: 100,
+        labelColor: 'blue',
+        labelMarginRight: 12,
+        colon: ' : ',
+        cellMargin: '20px',
+      },
       value: '2018-09-12 12:30:45',
     },
     {
@@ -63,6 +69,11 @@ const cardData = [
   ],
 ]
 
+const options = {
+  colon: ' ? ',
+  labelWidth: 0,
+}
+
 render((
   <div
     style={{
@@ -73,6 +84,6 @@ render((
     }}
   >
     <UserCard />
-    <Card align={0} data={cardData} />
+    <Card options={options} data={cardData} />
   </div>
 ), document.getElementById('root'))
