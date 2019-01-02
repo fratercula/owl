@@ -6,15 +6,15 @@ export default function (formater) {
     data,
     customs,
     onChange,
-    options,
+    gap,
   }) => formater.map((blocks, i) => {
-    const { rowSpace, columnSpace } = options
+    const { row, column } = gap
 
     return (
       <div
         className={`owl-cell ${css.cell}`}
         key={i}
-        style={rowSpace ? { marginBottom: rowSpace } : null}
+        style={row ? { marginBottom: row } : null}
       >
         {
           blocks.map((block, j) => {
@@ -78,7 +78,7 @@ export default function (formater) {
                 className={`owl-cell-unit ${css.unit}`}
                 style={{
                   display: 'inline-block',
-                  marginRight: columnSpace || null,
+                  marginRight: column || null,
                   ...style,
                 }}
               >

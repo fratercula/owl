@@ -6,7 +6,7 @@ function Cell({
   formater,
   data,
   customs,
-  options,
+  gap,
   onChange,
 }) {
   const I = interpreter(formater)
@@ -15,7 +15,7 @@ function Cell({
       data={data}
       onChange={onChange}
       customs={customs}
-      options={options}
+      gap={gap}
     />
   )
 }
@@ -25,7 +25,7 @@ Cell.propTypes = {
   formater: PropTypes.array,
   data: PropTypes.object,
   customs: PropTypes.object,
-  options: PropTypes.object,
+  gap: PropTypes.object,
 }
 
 Cell.defaultProps = {
@@ -33,7 +33,7 @@ Cell.defaultProps = {
   formater: [],
   data: {},
   customs: {},
-  options: {},
+  gap: {},
 }
 
 export default Cell
