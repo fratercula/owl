@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Card } from '../../../src'
+import checkbox from './customs'
 
-const data = [
+const mainData = [
   [
     {},
     {
@@ -17,7 +18,6 @@ const data = [
     {
       label: '金额',
       value: 'V-T To justify printed text means to adjust the spaces between the words so that each line of type is exactly the same length. 使 (文本) 对齐',
-      align: 200,
     },
     {},
     {
@@ -31,14 +31,14 @@ const data = [
   ],
   [
     {
-      label: '金额',
-      options: {
-        labelWidth: 100,
-        labelColor: 'blue',
-        labelMarginRight: 12,
+      label: {
+        text: '金额',
+        width: 100,
+        color: 'blue',
+        marginRight: 12,
         colon: ' : ',
-        cellMargin: '20px',
       },
+      margin: [20, 3, 4],
       value: '2018-09-12 12:30:45',
     },
     {
@@ -60,16 +60,42 @@ const data = [
     {
       value: 'aksdj4',
     },
+    {
+      label: 'checkbox',
+      type: 'checkbox',
+      props: {
+        checked: false,
+      },
+    },
   ],
 ]
 
 const options = {
-  colon: ' ? ',
+  labelColon: ' ? ',
   labelWidth: 0,
 }
 
-export default function () {
-  return (
-    <Card options={options} data={data} />
-  )
+export default class extends Component {
+  state = {
+    data: JSON.parse(JSON.stringify(mainData)),
+  }
+
+  onChange = (type, e) => {
+    const { data } = this.state
+    data[5][1].props.checked = e
+    this.setState({ data })
+  }
+
+  render() {
+    const { data } = this.state
+
+    return (
+      <Card
+        customs={{ checkbox }}
+        options={options}
+        data={data}
+        onChange={this.onChange}
+      />
+    )
+  }
 }

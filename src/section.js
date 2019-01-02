@@ -8,17 +8,24 @@ function Section({
   value,
   props,
   customs,
-  options: cellOptions,
-  mainOptions,
+  margin,
+  options,
+  onChange,
 }) {
-  const options = { ...mainOptions, ...cellOptions }
+  const labelOptions = typeof label === 'string' ? {} : {
+    labelWidth: label.width,
+    labelColor: label.color,
+    labelColon: label.colon,
+    labelMarginRight: label.marginRight,
+  }
   const {
     labelWidth,
     labelColor,
-    colon = ' : ',
-    cellMargin,
     labelMarginRight,
-  } = options
+    labelColon = ' : ',
+  } = { ...options, ...labelOptions }
+  const cellMargin = margin || options.cellMargin
+  const text = typeof label === 'string' ? label : label.text
 
   const labelStyle = {}
   const unitStyle = {}
@@ -33,10 +40,8 @@ function Section({
   if (labelColor) {
     labelStyle.color = labelColor
   }
-  if (cellMargin) {
-    unitStyle.margin = typeof cellMargin === 'string'
-      ? cellMargin
-      : cellMargin.map(s => `${s}px`).join(' ')
+  if (cellMargin.length) {
+    unitStyle.margin = cellMargin.map(s => `${s}px`).join(' ')
   }
   if (labelMarginRight) {
     labelStyle.marginRight = labelMarginRight
@@ -61,19 +66,26 @@ function Section({
   }
 
   if (C) {
-    child = (<C label={label} props={props} value={value} />)
+    child = (
+      <C
+        label={text}
+        props={props}
+        value={value}
+        onChange={e => onChange(type, e)}
+      />
+    )
   }
 
   return (
     <div style={unitStyle} className={`owl-card-unit ${css.unit}`}>
       {
-        label
+        text
           ? (
             <span
               style={labelStyle}
               className={`owl-card-label ${css.label}`}
             >
-              {label}{colon}
+              {text}{labelColon}
             </span>
           )
           : null
@@ -85,12 +97,13 @@ function Section({
 
 Section.propTypes = {
   type: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   value: PropTypes.any,
   customs: PropTypes.object,
   props: PropTypes.object,
+  margin: PropTypes.array,
   options: PropTypes.object,
-  mainOptions: PropTypes.object,
+  onChange: PropTypes.func,
 }
 
 Section.defaultProps = {
@@ -99,8 +112,9 @@ Section.defaultProps = {
   value: '',
   customs: {},
   props: {},
+  margin: [],
   options: {},
-  mainOptions: {},
+  onChange: () => null,
 }
 
 export default Section
