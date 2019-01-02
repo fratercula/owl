@@ -15,6 +15,9 @@ export default {
                 fontWeight: 'bold',
               },
             },
+            style: {
+              marginRight: 10,
+            },
           },
           'sheet',
         ],

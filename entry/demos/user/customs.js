@@ -68,7 +68,7 @@ export const lv0 = ({ props }) => (
 
 export const lv1 = ({ props }) => (
   <div className="lv1">
-    <Cell formater={f1} data={props} />
+    <Cell options={{ rowSpace: 5, columnSpace: 20 }} formater={f1} data={props} />
   </div>
 )
 
