@@ -9,6 +9,8 @@ function Card({
   customs,
   onChange,
 }) {
+  const { label, cellMargin, cellJustify } = options
+
   return (
     <div className={`owl-card ${css.card}`}>
       {
@@ -18,8 +20,10 @@ function Card({
               group.map((item, j) => (
                 <Section
                   key={j}
+                  margin={cellMargin}
+                  justify={cellJustify}
+                  labelOption={label}
                   {...item}
-                  options={options}
                   customs={customs}
                   onChange={onChange}
                 />

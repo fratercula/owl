@@ -32,13 +32,14 @@ export default [
   [
     {
       label: {
-        text: '金额',
+        text: '0',
         colon: ' ? ',
         style: {
           color: 'blue',
         },
       },
       margin: [20, 3, 4],
+      justify: 'space-between',
       value: '2018-09-12 12:30:45',
     },
     {

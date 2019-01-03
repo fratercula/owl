@@ -17,7 +17,13 @@ export default class extends Component {
 
   render() {
     const { data } = this.state
-    const options = {}
+    const options = {
+      cellJustify: 'space-between',
+      cellMargin: [0, 20],
+      label: {
+        colon: ' - ',
+      },
+    }
 
     return (
       <div className={css.info}>
