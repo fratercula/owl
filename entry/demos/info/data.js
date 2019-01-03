@@ -16,7 +16,11 @@ export default [
   ],
   [
     {
+      type: 'link',
       label: 'Number',
+      props: {
+        href: '/ccc/ddd/',
+      },
       value: '1712737182731283',
     },
     {
@@ -35,8 +39,9 @@ export default [
       value: '2018-09-12 12:30:45',
     },
     {
-      label: 'Nick',
-      value: 'Abster Husklt',
+      type: 'image',
+      value: 'https://tempim-1256796114.cos-website.ap-shanghai.myqcloud.com/placeholder/70x70',
+      label: 'Image',
     },
   ],
   [
@@ -45,8 +50,8 @@ export default [
       value: 'Miami Heat at Philadelphia',
     },
     {
-      label: 'Reason',
-      value: 'AMT Amount',
+      label: 'Nick',
+      value: 'Abster Husklt',
     },
   ],
   [

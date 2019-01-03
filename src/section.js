@@ -36,6 +36,18 @@ function Section({
     )
   }
 
+  if (type === 'image') {
+    child = (
+      <img className={`owl-card-image ${css.image}`} src={value} {...props} />
+    )
+  }
+
+  if (type === 'link') {
+    child = (
+      <a className={`owl-card-link ${css.link}`} {...props}>{value}</a>
+    )
+  }
+
   if (C) {
     child = (
       <C
