@@ -11,17 +11,17 @@ export default class extends Component {
 
   onChange = (type, e) => {
     const { data } = this.state
-    data[5][1].props.checked = e
+    data[5][0].props.checked = e
     this.setState({ data })
   }
 
   render() {
     const { data } = this.state
     const options = {
-      cellJustify: 'space-between',
-      cellMargin: [0, 20],
       label: {
-        colon: ' - ',
+        style: {
+          width: 80,
+        },
       },
     }
 

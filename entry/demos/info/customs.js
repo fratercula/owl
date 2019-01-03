@@ -9,6 +9,8 @@ export const checkbox = ({ props, onChange }) => {
     <Checkbox
       checked={checked}
       onChange={e => onChange(e.target.checked)}
-    />
+    >
+      This a Checkbox
+    </Checkbox>
   )
 }

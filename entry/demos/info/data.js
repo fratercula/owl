@@ -1,12 +1,12 @@
 export default [
   [
     {
-      value: '卡片信息',
+      value: 'Card Info',
       props: {
         style: {
           color: '#000',
           fontSize: 18,
-          marginBottom: 5,
+          marginBottom: 10,
           paddingLeft: 10,
           borderLeft: '4px solid #000',
           lineHeight: 1,
@@ -16,35 +16,37 @@ export default [
   ],
   [
     {
-      label: '金额很多话',
-      value: 'V-T To justify printed text means to adjust the spaces between the words so that each line of type is exactly the same length. 使 (文本) 对齐',
+      label: 'Number',
+      value: '1712737182731283',
     },
-    {},
     {
-      value: '一个商品',
-    },
-  ],
-  [
-    {
-      type: 'space',
-    },
-  ],
-  [
-    {
-      label: {
-        text: '0',
-        colon: ' ? ',
+      label: 'Amount',
+      value: '$345',
+      props: {
         style: {
-          color: 'blue',
+          color: 'red',
         },
       },
-      margin: [20, 3, 4],
-      justify: 'space-between',
+    },
+  ],
+  [
+    {
+      label: 'Time',
       value: '2018-09-12 12:30:45',
     },
     {
-      label: '商品',
-      value: '一个商品',
+      label: 'Nick',
+      value: 'Abster Husklt',
+    },
+  ],
+  [
+    {
+      label: 'Address',
+      value: 'Miami Heat at Philadelphia',
+    },
+    {
+      label: 'Reason',
+      value: 'AMT Amount',
     },
   ],
   [
@@ -52,17 +54,14 @@ export default [
       type: 'line',
       props: {
         style: {
-          marginTop: 20,
+          marginTop: 15,
         },
       },
     },
   ],
   [
     {
-      value: 'aksdj4',
-    },
-    {
-      label: 'checkbox',
+      label: 'Custom',
       type: 'checkbox',
       props: {
         checked: false,
