@@ -24,6 +24,7 @@ function Section({
     labelMarginRight,
     labelColon = ' : ',
   } = { ...options, ...labelOptions }
+
   const cellMargin = margin || options.cellMargin
   const text = typeof label === 'string' ? label : label.text
 
@@ -49,7 +50,7 @@ function Section({
 
   let child = value && type === 'string'
     ? (
-      <span className={`owl-card-value ${css.value}`}>{value}</span>
+      <span {...props} className={`owl-card-value ${css.value}`}>{value}</span>
     )
     : null
 

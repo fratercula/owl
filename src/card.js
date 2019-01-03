@@ -10,7 +10,7 @@ function Card({
   onChange,
 }) {
   return (
-    <div className="owl-card">
+    <div className={`owl-card ${css.card}`}>
       {
         data.map((group, i) => (
           <div key={i} className={`owl-card-group ${css.group}`}>

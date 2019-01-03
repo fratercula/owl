@@ -14,7 +14,7 @@ const ROUTES = [
   {
     key: 's0',
     icon: 'layout',
-    menu: 'Cell DEMOS',
+    menu: 'Cell',
     routes: [
       {
         label: 'User Card',
@@ -26,7 +26,7 @@ const ROUTES = [
   {
     key: 's1',
     icon: 'credit-card',
-    menu: 'Card DEMOS',
+    menu: 'Card',
     routes: [
       {
         label: 'Info Card',
@@ -38,7 +38,7 @@ const ROUTES = [
   {
     key: 's2',
     icon: 'folder',
-    menu: 'Cell/Card DEMOS',
+    menu: 'Mix',
     routes: [
       {
         label: 'Table Card',

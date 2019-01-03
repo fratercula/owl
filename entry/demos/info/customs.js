@@ -3,7 +3,7 @@
 import React from 'react'
 import { Checkbox } from 'antd'
 
-export default ({ props, onChange }) => {
+export const checkbox = ({ props, onChange }) => {
   const { checked } = props
   return (
     <Checkbox
