@@ -5,6 +5,8 @@
 
 React layout interpreter
 
+See the [demo](https://fratercula.github.io/owl/)
+
 ## Install
 
 via NPM
@@ -14,8 +16,6 @@ $ npm i @fratercula/owl -S
 ```
 
 ## Usage
-
-See the [demo](https://fratercula.github.io/owl/)
 
 to be added
 
