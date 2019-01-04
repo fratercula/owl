@@ -1,4 +1,3 @@
-import * as Owl from '../src'
-import '../src/index.less'
+import Owl from '../src'
 
 export default Owl

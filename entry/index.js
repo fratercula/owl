@@ -21,6 +21,11 @@ const ROUTES = [
         path: '/',
         component: User,
       },
+      {
+        label: 'Table Card',
+        path: '/table',
+        component: Table,
+      },
     ],
   },
   {
@@ -40,11 +45,6 @@ const ROUTES = [
     icon: 'folder',
     menu: 'Mix',
     routes: [
-      {
-        label: 'Table Card',
-        path: '/table',
-        component: Table,
-      },
     ],
   },
 ]
