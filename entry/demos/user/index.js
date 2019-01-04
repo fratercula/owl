@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Cell } from '../../src'
+import { Cell } from '../../../src'
 import { main } from './formater'
 import {
   lv0,

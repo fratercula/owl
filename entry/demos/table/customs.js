@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Table, Tag } from 'antd'
-import { Cell } from '../../src'
+import { Cell } from '../../../src'
 
 const tags = ({ props }) => {
   const { tags: t } = props

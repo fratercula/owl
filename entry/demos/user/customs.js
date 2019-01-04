@@ -7,7 +7,7 @@ import {
   Tag,
   Checkbox,
 } from 'antd'
-import { Cell } from '../../src'
+import { Cell } from '../../../src'
 import {
   f01,
   f0,
@@ -68,7 +68,7 @@ export const lv0 = ({ props }) => (
 
 export const lv1 = ({ props }) => (
   <div className="lv1">
-    <Cell formater={f1} data={props} />
+    <Cell gap={{ row: 5, column: 20 }} formater={f1} data={props} />
   </div>
 )
 

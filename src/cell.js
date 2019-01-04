@@ -1,15 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import parser from './parser'
+import interpreter from './interpreter'
 
 function Cell({
   formater,
   data,
   customs,
+  gap,
   onChange,
 }) {
-  const P = parser(formater)
-  return (<P data={data} onChange={onChange} customs={customs} />)
+  const I = interpreter(formater)
+  return (
+    <I
+      data={data}
+      onChange={onChange}
+      customs={customs}
+      gap={gap}
+    />
+  )
 }
 
 Cell.propTypes = {
@@ -17,6 +25,7 @@ Cell.propTypes = {
   formater: PropTypes.array,
   data: PropTypes.object,
   customs: PropTypes.object,
+  gap: PropTypes.object,
 }
 
 Cell.defaultProps = {
@@ -24,6 +33,7 @@ Cell.defaultProps = {
   formater: [],
   data: {},
   customs: {},
+  gap: {},
 }
 
 export default Cell
