@@ -18,11 +18,12 @@ export default class extends Component {
   render() {
     const { data } = this.state
     const options = {
-      label: {
-        style: {
-          width: 80,
-        },
+      labelStyle: {
+        width: 100,
       },
+      // labelColon: ' - ',
+      // cellMargin: [5, 0],
+      // cellJustify: 'space-between',
     }
 
     return (
@@ -30,7 +31,7 @@ export default class extends Component {
         <div>
           <Card
             customs={customs}
-            options={options}
+            {...options}
             data={data}
             onChange={this.onChange}
           />

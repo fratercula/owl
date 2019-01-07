@@ -10,12 +10,13 @@ function Section({
   customs,
   margin,
   justify,
-  labelOption,
+  labelStyle,
+  labelColon,
   onChange,
 }) {
-  const text = typeof label === 'string' ? label : label.text
-  const options = typeof label === 'string' ? {} : label
-  const { style = {}, colon = ' : ' } = { ...labelOption, ...options }
+  const text = label.text || label
+  const style = label.style || labelStyle
+  const colon = label.colon || labelColon
   const C = customs[type]
 
   let child = value && type === 'string'
@@ -92,7 +93,8 @@ Section.propTypes = {
   props: PropTypes.object,
   margin: PropTypes.array,
   justify: PropTypes.string,
-  labelOption: PropTypes.object,
+  labelStyle: PropTypes.object,
+  labelColon: PropTypes.string,
   onChange: PropTypes.func,
 }
 
@@ -103,7 +105,8 @@ Section.defaultProps = {
   customs: {},
   props: {},
   margin: [],
-  labelOption: {},
+  labelStyle: {},
+  labelColon: ' : ',
   justify: undefined,
   onChange: () => null,
 }

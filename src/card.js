@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Section from './section'
+import Unit from './unit'
 import css from './card.less'
 
 function Card({
   data,
-  options,
   customs,
   onChange,
+  labelStyle,
+  labelColon,
+  cellJustify,
+  cellMargin,
 }) {
-  const { label, cellMargin, cellJustify } = options
-
   return (
     <div className={`owl-card ${css.card}`}>
       {
@@ -18,12 +19,13 @@ function Card({
           <div key={i} className={`owl-card-group ${css.group}`}>
             {
               group.map((item, j) => (
-                <Section
+                <Unit
                   key={j}
                   margin={cellMargin}
                   justify={cellJustify}
-                  labelOption={label}
                   {...item}
+                  labelStyle={labelStyle}
+                  labelColon={labelColon}
                   customs={customs}
                   onChange={onChange}
                 />
@@ -38,16 +40,22 @@ function Card({
 
 Card.propTypes = {
   data: PropTypes.array,
-  options: PropTypes.object,
   customs: PropTypes.object,
   onChange: PropTypes.func,
+  labelStyle: PropTypes.object,
+  cellJustify: PropTypes.string,
+  cellMargin: PropTypes.array,
+  labelColon: PropTypes.string,
 }
 
 Card.defaultProps = {
   data: [],
-  options: {},
   customs: {},
   onChange: () => null,
+  labelStyle: {},
+  cellJustify: undefined,
+  cellMargin: [],
+  labelColon: ' : ',
 }
 
 export default Card
