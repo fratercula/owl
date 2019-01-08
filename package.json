@@ -21,7 +21,7 @@
     "css": "lessc src/index.less lib/index.css",
     "js": "babel src -d lib",
     "jest": "jest --config jest.config.js",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run lint",
     "prepublish": "npm run build"
   },
   "repository": {

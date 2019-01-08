@@ -14,7 +14,7 @@ export default function (formater) {
       <div
         className={`owl-cell ${css.cell}`}
         key={i}
-        style={row ? { marginBottom: row } : null}
+        style={row && i < blocks.length - 1 ? { marginBottom: row } : null}
       >
         {
           blocks.map((block, j) => {
@@ -78,7 +78,7 @@ export default function (formater) {
                 className={`owl-cell-unit ${css.unit}`}
                 style={{
                   display: 'inline-block',
-                  marginRight: column || null,
+                  marginRight: column && j < blocks.length - 1 ? column : null,
                   ...style,
                 }}
               >

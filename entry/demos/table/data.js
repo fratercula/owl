@@ -16,7 +16,7 @@ export default {
               },
             },
             style: {
-              marginRight: 10,
+              // marginRight: 10,
             },
           },
           'sheet',
