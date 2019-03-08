@@ -19,7 +19,7 @@ export const f0 = [
     {
       type: 'image',
       props: {
-        src: 'key:image',
+        src: ':image',
         style: {
           borderRadius: '50%',
           marginRight: 10,
@@ -29,8 +29,8 @@ export const f0 = [
     {
       type: 'name',
       props: {
-        name: 'key:name',
-        role: 'key:role',
+        name: ':name',
+        role: ':role',
       },
       style: {
         marginTop: 10,
@@ -39,7 +39,7 @@ export const f0 = [
     {
       type: 'button',
       props: {
-        disabled: 'key:disabled',
+        disabled: ':disabled',
       },
     },
   ],
@@ -73,7 +73,7 @@ export const f2 = [
     {
       type: 'tags',
       props: {
-        expertise: 'key:expertise',
+        expertise: ':expertise',
       },
     },
   ],
@@ -84,7 +84,7 @@ export const main = [
     {
       type: 'checkbox',
       props: {
-        checked: 'key:checked',
+        checked: ':checked',
       },
     },
   ],
@@ -92,10 +92,10 @@ export const main = [
     {
       type: 'lv0',
       props: {
-        image: 'key:image',
-        name: 'key:name',
-        role: 'key:role',
-        disabled: 'key:disabled',
+        image: ':image',
+        name: ':name',
+        role: ':role',
+        disabled: ':disabled',
       },
       style: {
         width: '100%',
@@ -106,7 +106,7 @@ export const main = [
     {
       type: 'lv1',
       props: {
-        career: 'key:career',
+        career: ':career',
       },
       style: {
         width: '100%',
@@ -117,7 +117,7 @@ export const main = [
     {
       type: 'lv2',
       props: {
-        expertise: 'key:expertise',
+        expertise: ':expertise',
       },
     },
   ],
@@ -125,7 +125,7 @@ export const main = [
     {
       type: 'icon',
       props: {
-        icons: 'key:icon',
+        icons: ':icon',
       },
       style: {
         width: '100%',

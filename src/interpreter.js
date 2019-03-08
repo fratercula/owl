@@ -36,9 +36,9 @@ export default function (formater) {
             }
 
             Object.keys(props).forEach((p) => {
-              if (typeof props[p] === 'string' && props[p].includes('key:')) {
+              if (typeof props[p] === 'string' && props[p].match(/^:.{1,}/)) {
                 // eslint-disable-next-line no-param-reassign
-                props[p] = data[props[p].split('key:')[1]]
+                props[p] = data[props[p].split(':')[1]]
               }
             })
 

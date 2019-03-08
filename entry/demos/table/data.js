@@ -40,7 +40,7 @@ export default {
           {
             type: 'tags',
             props: {
-              tags: 'key:tags',
+              tags: ':tags',
             },
           },
         ],

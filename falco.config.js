@@ -42,5 +42,6 @@ module.exports = {
   ],
   registry: 'https://registry.npm.taobao.org',
   mode: !NODE_ENV ? 'development' : 'production',
+  cssModule: true,
   output,
 }
