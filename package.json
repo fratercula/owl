@@ -7,22 +7,13 @@
     "react",
     "layout"
   ],
-  "unpkg": "build/index.js",
+  "unpkg": "lib/index.js",
   "files": [
-    "lib",
-    "build"
+    "lib"
   ],
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --hot --inline",
-    "umd": "NODE_ENV=prod webpack --hide-modules --progress --colors",
-    "docs": "NODE_ENV=docs webpack --hide-modules --progress --colors",
-    "build": "npm run css && npm run js && npm run umd && npm run docs",
-    "lint": "eslint .",
-    "css": "lessc src/index.less lib/index.css",
-    "js": "babel src -d lib",
-    "jest": "jest --config jest.config.js",
-    "test": "npm run lint",
-    "prepublish": "npm run build"
+    "start": "falco -c -m entry/index.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -41,36 +32,13 @@
     "prop-types": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.1",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.2.0",
-    "antd": "^3.11.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "@babel/core": "^7.3.4",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "css-loader": "^1.0.1",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "jest": "^23.6.0",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
   }
 }
