@@ -36,7 +36,7 @@ export default class extends Component {
             icon,
             checkbox,
           }}
-          formater={main}
+          format={main}
           data={data}
           onEvent={this.onEvent}
         />

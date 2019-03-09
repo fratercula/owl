@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import interpreter from './interpreter'
 
 function Cell({
-  formater,
+  format,
   data,
   components,
   gap,
   onEvent,
 }) {
-  const I = interpreter(formater)
+  const I = interpreter(format)
   return (
     <I
       data={data}
@@ -22,7 +22,7 @@ function Cell({
 
 Cell.propTypes = {
   onEvent: PropTypes.func,
-  formater: PropTypes.array,
+  format: PropTypes.array,
   data: PropTypes.object,
   components: PropTypes.object,
   gap: PropTypes.object,
@@ -30,7 +30,7 @@ Cell.propTypes = {
 
 Cell.defaultProps = {
   onEvent: () => null,
-  formater: [],
+  format: [],
   data: {},
   components: {},
   gap: {},

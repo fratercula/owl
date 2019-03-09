@@ -58,22 +58,22 @@ export const tags = ({ props }) => {
   ))
 }
 
-export const name = ({ props }) => (<Cell formater={f01} data={props} />)
+export const name = ({ props }) => (<Cell format={f01} data={props} />)
 
 export const lv0 = ({ props }) => (
   <div className="lv0">
-    <Cell components={{ name, button }} formater={f0} data={props} />
+    <Cell components={{ name, button }} format={f0} data={props} />
   </div>
 )
 
 export const lv1 = ({ props }) => (
   <div className="lv1">
-    <Cell gap={{ row: 5, column: 20 }} formater={f1} data={props} />
+    <Cell gap={{ row: 5, column: 20 }} format={f1} data={props} />
   </div>
 )
 
 export const lv2 = ({ props }) => (
   <div className="lv2">
-    <Cell formater={f2} data={props} components={{ tags }} />
+    <Cell format={f2} data={props} components={{ tags }} />
   </div>
 )

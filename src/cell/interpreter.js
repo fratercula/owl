@@ -1,13 +1,13 @@
 import React from 'react' // eslint-disable-line import/no-unresolved
 import css from './cell.less'
 
-export default function (formater) {
+export default function (format) {
   return ({
     data,
     components,
     onEvent,
     gap,
-  }) => formater.map((blocks, i) => {
+  }) => format.map((blocks, i) => {
     const { row, column } = gap
 
     return (
