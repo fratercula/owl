@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved: 0 */
 import React from 'react'
 import { render } from 'react-dom'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'

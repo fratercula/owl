@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types'
 import interpreter from './interpreter'
 

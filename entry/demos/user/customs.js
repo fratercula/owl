@@ -1,4 +1,4 @@
-/* eslint react/prop-types: 0 */
+/* eslint react/prop-types: 0, import/no-unresolved: 0 */
 
 import React from 'react'
 import {
@@ -45,7 +45,7 @@ export const button = ({ props }) => (
   <Button
     style={{ margin: '18px 0 0 70px' }}
     type="primary"
-    disabled={props.disabled}
+    disabled={props.disabled} // eslint-disable-line
   >
     Follow
   </Button>

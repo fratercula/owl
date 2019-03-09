@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types'
 import Unit from './unit'
 import css from './card.less'
@@ -52,8 +52,8 @@ Card.defaultProps = {
   data: [],
   customs: {},
   onChange: () => null,
+  cellJustify: 'normal',
   labelStyle: {},
-  cellJustify: undefined,
   cellMargin: [],
   labelColon: ' : ',
 }

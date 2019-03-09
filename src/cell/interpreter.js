@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line import/no-unresolved
 import css from './cell.less'
 
 export default function (formater) {

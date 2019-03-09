@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types'
 import css from './card.less'
 
@@ -107,7 +107,7 @@ Section.defaultProps = {
   margin: [],
   labelStyle: {},
   labelColon: ' : ',
-  justify: undefined,
+  justify: 'normal',
   onChange: () => null,
 }
 

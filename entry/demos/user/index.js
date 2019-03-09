@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react' // eslint-disable-line
 import { Cell } from '../../../src'
 import { main } from './formater'
 import {
