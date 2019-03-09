@@ -9,7 +9,7 @@ export default class extends Component {
     data: JSON.parse(JSON.stringify(mainData)),
   }
 
-  onChange = (type, e) => {
+  onEvent = (type, e) => {
     const { data } = this.state
     data[5][0].props.checked = e
     this.setState({ data })
@@ -30,10 +30,10 @@ export default class extends Component {
       <div className={css.info}>
         <div>
           <Card
-            customs={customs}
+            components={customs}
             {...options}
             data={data}
-            onChange={this.onChange}
+            onEvent={this.onEvent}
           />
         </div>
       </div>

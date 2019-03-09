@@ -4,8 +4,8 @@ import css from './cell.less'
 export default function (formater) {
   return ({
     data,
-    customs,
-    onChange,
+    components,
+    onEvent,
     gap,
   }) => formater.map((blocks, i) => {
     const { row, column } = gap
@@ -24,12 +24,12 @@ export default function (formater) {
               type = 'string',
               props: originProps = {},
               prefix = '',
-              postfix = '',
+              suffix = '',
               style = {},
             } = item
             const text = data[key]
             const props = JSON.parse(JSON.stringify(originProps))
-            const C = customs[type]
+            const C = components[type]
 
             if (!key && !type) {
               return null
@@ -66,7 +66,7 @@ export default function (formater) {
               child = (
                 <C
                   text={text}
-                  onChange={e => onChange(type, e)}
+                  onEvent={e => onEvent(type, e)}
                   props={props}
                 />
               )
@@ -84,7 +84,7 @@ export default function (formater) {
               >
                 {prefix}
                 {child}
-                {postfix}
+                {suffix}
               </div>
             )
           })

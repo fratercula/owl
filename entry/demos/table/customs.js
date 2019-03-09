@@ -19,7 +19,7 @@ export default function ({ value, props }) {
     column.dataIndex = typeof fr === 'string' ? fr : i
     if (typeof fr === 'object') {
       column.render = (cell, record) => (
-        <Cell gap={{ row: 10, column: 10 }} customs={{ tags }} formater={fr} data={record} />
+        <Cell gap={{ row: 10, column: 10 }} components={{ tags }} formater={fr} data={record} />
       )
     }
   })

@@ -5,34 +5,34 @@ import interpreter from './interpreter'
 function Cell({
   formater,
   data,
-  customs,
+  components,
   gap,
-  onChange,
+  onEvent,
 }) {
   const I = interpreter(formater)
   return (
     <I
       data={data}
-      onChange={onChange}
-      customs={customs}
+      onEvent={onEvent}
+      components={components}
       gap={gap}
     />
   )
 }
 
 Cell.propTypes = {
-  onChange: PropTypes.func,
+  onEvent: PropTypes.func,
   formater: PropTypes.array,
   data: PropTypes.object,
-  customs: PropTypes.object,
+  components: PropTypes.object,
   gap: PropTypes.object,
 }
 
 Cell.defaultProps = {
-  onChange: () => null,
+  onEvent: () => null,
   formater: [],
   data: {},
-  customs: {},
+  components: {},
   gap: {},
 }
 

@@ -5,15 +5,15 @@ import css from './card.less'
 
 function Card({
   data,
-  customs,
-  onChange,
+  components,
+  onEvent,
   labelStyle,
   labelColon,
   cellJustify,
   cellMargin,
 }) {
   return (
-    <div className={`owl-card ${css.card}`}>
+    <div className="owl-card">
       {
         data.map((group, i) => (
           <div key={i} className={`owl-card-group ${css.group}`}>
@@ -26,8 +26,8 @@ function Card({
                   {...item}
                   labelStyle={labelStyle}
                   labelColon={labelColon}
-                  customs={customs}
-                  onChange={onChange}
+                  components={components}
+                  onEvent={onEvent}
                 />
               ))
             }
@@ -40,8 +40,8 @@ function Card({
 
 Card.propTypes = {
   data: PropTypes.array,
-  customs: PropTypes.object,
-  onChange: PropTypes.func,
+  components: PropTypes.object,
+  onEvent: PropTypes.func,
   labelStyle: PropTypes.object,
   cellJustify: PropTypes.string,
   cellMargin: PropTypes.array,
@@ -50,8 +50,8 @@ Card.propTypes = {
 
 Card.defaultProps = {
   data: [],
-  customs: {},
-  onChange: () => null,
+  components: {},
+  onEvent: () => null,
   cellJustify: 'normal',
   labelStyle: {},
   cellMargin: [],

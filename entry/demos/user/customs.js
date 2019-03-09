@@ -15,13 +15,13 @@ import {
   f2,
 } from './formater'
 
-export const checkbox = ({ props, onChange }) => {
+export const checkbox = ({ props, onEvent }) => {
   const { checked } = props
   return (
     <Checkbox
       style={{ position: 'absolute', right: 15, top: 10 }}
       checked={checked}
-      onChange={e => onChange(e.target.checked)}
+      onChange={e => onEvent(e.target.checked)}
     />
   )
 }
@@ -62,7 +62,7 @@ export const name = ({ props }) => (<Cell formater={f01} data={props} />)
 
 export const lv0 = ({ props }) => (
   <div className="lv0">
-    <Cell customs={{ name, button }} formater={f0} data={props} />
+    <Cell components={{ name, button }} formater={f0} data={props} />
   </div>
 )
 
@@ -74,6 +74,6 @@ export const lv1 = ({ props }) => (
 
 export const lv2 = ({ props }) => (
   <div className="lv2">
-    <Cell formater={f2} data={props} customs={{ tags }} />
+    <Cell formater={f2} data={props} components={{ tags }} />
   </div>
 )

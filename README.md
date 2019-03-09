@@ -18,14 +18,14 @@ $ npm i @fratercula/owl -S
 ## Usage
 
 ```js
-import { Card, Cell } from '@@fratercula/ow'
+import { Card, Cell } from '@@fratercula/owl'
 ```
 
 ### CARD
 
 ```js
-const customs = {
-  checkbox({ props, onChange, value, label }) {
+const components = {
+  checkbox({ props, onEvent, value, label }) {
     return ...
   },
 }
@@ -66,13 +66,13 @@ const data = [
 ]
 
 <Card
-  customs={customs}
+  components={components}
   data={data}
   lableStyle={{ marginTop: 10 }}
   lableColon=" - "
   cellMargin={[2, 3]}
   cellJustify="space-between"
-  onChange={(type, value) => console.log(type, value)}
+  onEvent={(type, value) => console.log(type, value)}
 />
 ```
 

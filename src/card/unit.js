@@ -7,17 +7,17 @@ function Section({
   label,
   value,
   props,
-  customs,
+  components,
   margin,
   justify,
   labelStyle,
   labelColon,
-  onChange,
+  onEvent,
 }) {
   const text = label.text || label
   const style = label.style || labelStyle
   const colon = label.colon || labelColon
-  const C = customs[type]
+  const C = components[type]
 
   let child = value && type === 'string'
     ? (
@@ -55,7 +55,7 @@ function Section({
         label={text}
         props={props}
         value={value}
-        onChange={e => onChange(type, e)}
+        onEvent={e => onEvent(type, e)}
       />
     )
   }
@@ -89,26 +89,26 @@ Section.propTypes = {
   type: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   value: PropTypes.any,
-  customs: PropTypes.object,
+  components: PropTypes.object,
   props: PropTypes.object,
   margin: PropTypes.array,
   justify: PropTypes.string,
   labelStyle: PropTypes.object,
   labelColon: PropTypes.string,
-  onChange: PropTypes.func,
+  onEvent: PropTypes.func,
 }
 
 Section.defaultProps = {
   type: 'string',
   label: '',
   value: '',
-  customs: {},
+  components: {},
   props: {},
   margin: [],
   labelStyle: {},
   labelColon: ' : ',
   justify: 'normal',
-  onChange: () => null,
+  onEvent: () => null,
 }
 
 export default Section

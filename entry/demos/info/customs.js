@@ -3,12 +3,12 @@
 import React from 'react'
 import { Checkbox } from 'antd'
 
-export const checkbox = ({ props, onChange }) => {
+export const checkbox = ({ props, onEvent }) => {
   const { checked } = props
   return (
     <Checkbox
       checked={checked}
-      onChange={e => onChange(e.target.checked)}
+      onChange={e => onEvent(e.target.checked)}
     >
       This a Checkbox
     </Checkbox>

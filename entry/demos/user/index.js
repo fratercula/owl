@@ -16,7 +16,7 @@ export default class extends Component {
     data: JSON.parse(JSON.stringify(mainData)),
   }
 
-  onChange = (type, e) => {
+  onEvent = (type, e) => {
     const { data } = this.state
     data.checked = e
     data.disabled = !e
@@ -29,7 +29,7 @@ export default class extends Component {
     return (
       <div className="user">
         <Cell
-          customs={{
+          components={{
             lv0,
             lv1,
             lv2,
@@ -38,7 +38,7 @@ export default class extends Component {
           }}
           formater={main}
           data={data}
-          onChange={this.onChange}
+          onEvent={this.onEvent}
         />
       </div>
     )
