@@ -15,7 +15,9 @@ function Section({
   onEvent,
 }) {
   const text = label.text || label
-  const style = label.style || labelStyle
+  const style = label.style
+    ? { ...labelStyle, ...label.style }
+    : labelStyle
   const colon = label.colon || labelColon
   const C = components[type]
 
@@ -39,13 +41,13 @@ function Section({
 
   if (type === 'image') {
     child = (
-      <img className={`owl-card-image ${css.image}`} src={value} {...props} />
+      <img className="owl-card-image" {...props} />
     )
   }
 
   if (type === 'link') {
     child = (
-      <a className={`owl-card-link ${css.link}`} {...props}>{value}</a>
+      <a className="owl-card-link" {...props}>{value}</a>
     )
   }
 
@@ -71,12 +73,10 @@ function Section({
       {
         text
           ? (
-            <span
-              style={style}
-              className={`owl-card-label ${css.label}`}
-            >
-              {text}{colon}
-            </span>
+            <div className={`owl-card-label ${css.label}`}>
+              <span style={style}>{text}</span>
+              <span className="owl-card-colon">{colon}</span>
+            </div>
           )
           : null
       }

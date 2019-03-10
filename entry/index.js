@@ -8,18 +8,32 @@ import User from './demos/user'
 import Table from './demos/table'
 import Info from './demos/info'
 
+import Card from './demos/card'
+
 const { Content, Sider } = Layout
 const { SubMenu } = Menu
 
 const ROUTES = [
   {
+    key: 's2',
+    icon: 'folder',
+    menu: 'Default',
+    routes: [
+      {
+        label: 'Card',
+        path: '/',
+        component: Card,
+      },
+    ],
+  },
+  {
     key: 's0',
     icon: 'layout',
-    menu: 'Cell',
+    menu: 'Example',
     routes: [
       {
         label: 'User Card',
-        path: '/',
+        path: '/user',
         component: User,
       },
       {
@@ -27,25 +41,11 @@ const ROUTES = [
         path: '/table',
         component: Table,
       },
-    ],
-  },
-  {
-    key: 's1',
-    icon: 'credit-card',
-    menu: 'Card',
-    routes: [
       {
         label: 'Info Card',
         path: '/info',
         component: Info,
       },
-    ],
-  },
-  {
-    key: 's2',
-    icon: 'folder',
-    menu: 'Mix',
-    routes: [
     ],
   },
 ]
@@ -57,7 +57,7 @@ render((
         <Menu
           mode="inline"
           defaultSelectedKeys={[window.location.hash.split('#')[1]]}
-          defaultOpenKeys={['s0', 's1', 's2']}
+          defaultOpenKeys={['s0', 's2']}
           style={{ height: '100%' }}
         >
           {
