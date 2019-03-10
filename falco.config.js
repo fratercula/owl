@@ -7,7 +7,7 @@ if (NODE_ENV === 'docs') {
 }
 
 if (NODE_ENV === 'umd') {
-  output.library = 'puffin'
+  output.library = 'owl'
   output.libraryTarget = 'umd'
 }
 

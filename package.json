@@ -13,6 +13,9 @@
   ],
   "scripts": {
     "start": "falco -c -m entry/index.js",
+    "umd": "NODE_ENV=umd falco -c -m src/index.js -o lib",
+    "docs": "NODE_ENV=docs falco -c -m entry/index.js -o docs",
+    "build": "npm run docs && npm run umd",
     "lint": "eslint ."
   },
   "repository": {

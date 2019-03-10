@@ -72,6 +72,69 @@ const data = [
 />
 ```
 
+### Cell
+
+```js
+const components = {
+  checkbox({ text, props, onEvent }) {
+    return ...
+  },
+}
+const data = {
+  city: 'city',
+  checked: true,
+  name: 'name',
+  src: 'https://tempim-1256796114.cos-website.ap-shanghai.myqcloud.com/placeholder/70x70',
+}
+const format = [
+  [
+    {
+      type: 'checkbox',
+      props: {
+        checked: ':checked',
+      },
+    },
+    'name',
+    {
+      type: 'link',
+      key: 'city',
+      props: {
+        href: ':src',
+      },
+      style: {
+        marginTop: 50,
+      },
+    },
+  ],
+  [
+    {
+      key: 'city',
+      prefix: '??? ',
+      props: {
+        style: {
+          color: 'red',
+        },
+      },
+    },
+    {
+      type: 'image',
+      props: {
+        src: ':src',
+      },
+      suffix: '----',
+    },
+  ],
+]
+
+<Cell
+  format={format}
+  components={componets}
+  data={data}
+  onEvent={(...args) => console.log(args)}
+  gap={{ column: 30, row: 20 }}
+/>
+```
+
 ## License
 
 MIT
