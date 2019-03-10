@@ -9,6 +9,7 @@ import Table from './demos/table'
 import Info from './demos/info'
 
 import Card from './demos/card'
+import Cell from './demos/cell'
 
 const { Content, Sider } = Layout
 const { SubMenu } = Menu
@@ -21,8 +22,13 @@ const ROUTES = [
     routes: [
       {
         label: 'Card',
-        path: '/',
+        path: '/card',
         component: Card,
+      },
+      {
+        label: 'Cell',
+        path: '/',
+        component: Cell,
       },
     ],
   },

@@ -52,7 +52,7 @@ export default function (format) {
 
             if (type === 'image') {
               child = (
-                <img src={text} {...props} />
+                <img {...props} />
               )
             }
 
@@ -77,14 +77,21 @@ export default function (format) {
                 key={j}
                 className={`owl-cell-unit ${css.unit}`}
                 style={{
-                  display: 'inline-block',
                   marginRight: column && j < blocks.length - 1 ? column : null,
                   ...style,
                 }}
               >
-                {prefix}
+                {
+                  prefix
+                    ? <span className={`owl-cell-prefix ${css.prefix}`}>{prefix}</span>
+                    : null
+                }
                 {child}
-                {suffix}
+                {
+                  suffix
+                    ? <span className={`owl-cell-suffix ${css.suffix}`}>{suffix}</span>
+                    : null
+                }
               </div>
             )
           })

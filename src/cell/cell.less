@@ -1,16 +1,26 @@
 .cell {
   margin-bottom: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
   &:last-child {
     margin-bottom: 0;
   }
 }
 .unit {
-  display: inline-block;
-  vertical-align: top;
   margin-right: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
   &:last-child {
     margin-right: 0;
   }
+}
+.prefix {
+  margin-right: 5px;
+}
+.suffix {
+  margin-left: 5px;
 }
