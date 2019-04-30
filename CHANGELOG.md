@@ -2,7 +2,7 @@
 
 ## 0.1.1
 
-- onEvent arguments
+- refactor: onEvent arguments
 
 ## 0.1.0
 
