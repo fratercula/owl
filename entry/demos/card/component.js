@@ -6,6 +6,6 @@ import { Input } from 'antd'
 export const input = ({ props, onEvent }) => (
   <Input
     {...props}
-    onChange={e => onEvent(e.target.value)}
+    onChange={e => onEvent(e.target.value, '???')}
   />
 )

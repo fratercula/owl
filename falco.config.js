@@ -40,7 +40,9 @@ module.exports = {
       urls: ['https://cdn.staticfile.org/moment.js/2.24.0/moment.min.js', 'https://cdn.staticfile.org/antd/3.13.6/antd-with-locales.min.js'],
     },
   ],
-  registry: 'https://registry.npm.taobao.org',
+  npm: {
+    registry: 'https://registry.npm.taobao.org',
+  },
   mode: !NODE_ENV ? 'development' : 'production',
   cssModule: true,
   output,

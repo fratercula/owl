@@ -57,7 +57,7 @@ function Section({
         label={text}
         props={props}
         value={value}
-        onEvent={e => onEvent(type, e)}
+        onEvent={(...args) => onEvent(type, ...args)}
       />
     )
   }
